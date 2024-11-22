@@ -40,4 +40,14 @@ func main() {
 	t3 := Create("t3", "{{if . -}} yes {{else -}} no {{end}}\n")
 
 	t3.Execute(os.Stdout, "not empty")
+	t3.Execute(os.Stdout, "")
+
+	t4 := Create("t4", "Range:\n {{range .}}{{.}}\n {{end}}")
+
+	t4.Execute(os.Stdout, []string{
+		"Go",
+		"Rust",
+		"C++",
+		"C#",
+	})
 }
